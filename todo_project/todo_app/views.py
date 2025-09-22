@@ -4,7 +4,7 @@ from .forms import TaskForm
 
 
 def home(request):
-    return render(request, 'home.html', {
+    return render(request, 'todo_app/home.html', {
         'tasks': Task.objects.all(),
         'form': TaskForm()
     })
