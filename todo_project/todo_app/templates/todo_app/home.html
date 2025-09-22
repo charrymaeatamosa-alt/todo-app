@@ -1,6 +1,5 @@
 {% extends "todo_app/base.html" %}
 {% block content %}
-
 <form method="POST" class="todo-form">
     {% csrf_token %}
     {{ form.as_p }}

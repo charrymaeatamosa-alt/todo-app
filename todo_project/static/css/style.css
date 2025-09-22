@@ -35,27 +35,31 @@ body {
 
 /* Form */
 form {
-    display: flex; /* input left, button right */
+    display: flex; 
     justify-content: space-evenly;
-    align-items: center;            /* vertical alignment */
-    margin-bottom: 20px;
+    align-items: center;           
     gap: 10px;
 }
 
 input[type="text"] {
     flex: 1;
-    width: 300px; /* take full width */
-    padding: 0;         /* smaller padding for line-style */
-    border: none;               /* remove all borders */
-    border-bottom: 2px solid #ccc;  /* just a bottom border */
-    font-size: 15px;
+    width: 300px; 
+    padding: 0;        
+    border: none;              
+    border-bottom: 2px solid #ccc;  
     transition: all 0.3s ease;
-    outline: none;              /* remove default outline */
+    outline: none;             
 }
 
 input[type="text"]:focus {
-    border-bottom-color: #6b46c1;  /* change color on focus */
-    box-shadow: 0 2px 0 rgba(107, 70, 193, 0.4); /* subtle underline glow */
+    border-bottom-color: #6b46c1; 
+    box-shadow: 0 2px 0 rgba(107, 70, 193, 0.4); 
+}
+
+form label {
+    font-weight: bold;  
+    font-size: 15px;    
+    margin-right: 10px; 
 }
 
 button {
@@ -63,12 +67,14 @@ button {
     color: white;
     border: none;
     margin-top: 15px;
+    margin-bottom: 15px;
     width: fit-content;
     height: fit-content;
     padding: 12px 18px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 15px;
+    font-style: bold;
     display: flex;
     align-items: center;
     gap: 5px;

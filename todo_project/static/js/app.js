@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     console.log("✅ Todo App Initialized");
-
+    
     // Confirm before deleting a task
     document.querySelectorAll(".delete-btn").forEach(button => {
         button.addEventListener("click", (event) => {
@@ -10,5 +10,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-    
 });
