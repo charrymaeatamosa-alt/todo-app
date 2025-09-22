@@ -1,11 +1,11 @@
-document.addEventListener("DOMContentLoaded", function() {
-    console.log("Todo App loaded ✅");
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("✅ Todo App Initialized");
 
-    // Example: confirm before deleting a task
-    let deleteButtons = document.querySelectorAll(".delete-btn");
-    deleteButtons.forEach(button => {
-        button.addEventListener("click", function() {
-            if (!confirm("Are you sure you want to delete this task?")) {
+    // Confirm before deleting a task
+    document.querySelectorAll(".delete-btn").forEach(button => {
+        button.addEventListener("click", (event) => {
+            const confirmed = confirm("Are you sure you want to delete this task?");
+            if (!confirmed) {
                 event.preventDefault();
             }
         });

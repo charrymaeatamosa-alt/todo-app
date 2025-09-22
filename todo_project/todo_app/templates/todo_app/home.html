@@ -1,26 +1,30 @@
 {% extends "todo_app/base.html" %}
 {% block content %}
 
-<form method="POST">
+<form method="POST" class="todo-form">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Add Task</button>
+    <button type="submit">➕ Add Task</button>
 </form>
 
 <ul>
     {% for task in tasks %}
         <li class="todo-item">
-            {% if task.completed %}
-                <s>{{ task.title }}</s>S
-            {% else %}
-                {{ task.title }}
-            {% endif %}
+            <span>
+                {% if task.completed %}
+                    <s>{{ task.title }}</s>
+                {% else %}
+                    {{ task.title }}
+                {% endif %}
+            </span>
 
-            <a href="{% url 'toggle_task' task.id %}">[Toggle]</a>
-            <a href="{% url 'delete_task' task.id %}" class="delete-btn">[Delete]</a>
+            <div>
+                <a href="{% url 'toggle_task' task.id %}" class="toggle-btn">✔ Toggle</a>
+                <a href="{% url 'delete_task' task.id %}" class="delete-btn">✖ Delete</a>
+            </div>
         </li>
     {% empty %}
-        <li>No tasks yet! 🎉</li>
+        <li class="todo-item">No tasks yet! 🎉</li>
     {% endfor %}
 </ul>
 

@@ -4,10 +4,16 @@ from .forms import TaskForm
 
 
 def home(request):
-    return render(request, 'todo_app/home.html', {
-        'tasks': Task.objects.all(),
-        'form': TaskForm()
-    })
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("home")  # refresh page so the new task shows up
+    else:
+        form = TaskForm()
+
+    tasks = Task.objects.all().order_by("-id")  # show latest first
+    return render(request, "todo_app/home.html", {"tasks": tasks, "form": form})
 
 
 def delete_task(request, task_id):
