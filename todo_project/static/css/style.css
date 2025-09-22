@@ -1,88 +1,94 @@
-/* General Layout */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8fafc;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9fafb;
     color: #333;
+    padding: 30px;
+    display: flex;
+    justify-content: center;
 }
 
 .container {
-    max-width: 600px;
-    margin: 40px auto;
-    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Header */
 h1 {
     text-align: center;
-    color: #1e293b;
+    margin-bottom: 20px;
+    color: #4a5568;
+}
+
+form {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-/* Todo Container */
-.todo-container {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
-}
-
-/* Task Items */
-.todo-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 8px 0;
-    padding: 12px 15px;
-    background: #f1f5f9;
-    border-radius: 6px;
-    transition: background 0.3s ease;
-}
-
-.todo-item:hover {
-    background: #e2e8f0;
-}
-
-/* Buttons */
-button,
-a {
-    cursor: pointer;
-    text-decoration: none;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 5px;
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     font-size: 14px;
 }
 
 button {
-    background: #2563eb;
-    color: #fff;
+    background: #6b46c1;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 
 button:hover {
-    background: #1d4ed8;
+    background: #553c9a;
 }
 
-a.toggle-btn {
-    color: #0f766e;
-    font-weight: 500;
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-a.delete-btn {
-    color: #dc2626;
-    font-weight: 500;
+li {
+    background: #f3f4f6;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
 }
 
-.alert {
-    padding: 10px 15px;
-    border-radius: 5px;
-    margin-bottom: 8px;
-    font-weight: bold;
-    transition: opacity 0.5s ease;
+li:hover {
+    background: #e5e7eb;
 }
 
-.alert-success { background: #d4edda; color: #155724; }
-.alert-danger  { background: #f8d7da; color: #721c24; }
-.alert-warning { background: #fff3cd; color: #856404; }
-.alert-info    { background: #cce5ff; color: #004085; }
+li.completed span {
+    text-decoration: line-through;
+    color: #999;
+}
+
+.task-actions a {
+    margin-left: 10px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.task-actions a.toggle {
+    color: #16a34a; /* green */
+}
+
+.task-actions a.delete {
+    color: #dc2626; /* red */
+}
