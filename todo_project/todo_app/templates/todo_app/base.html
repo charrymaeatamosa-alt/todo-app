@@ -3,7 +3,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Todo App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Todo · Simple Task Manager</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -21,16 +22,6 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script>
-        // Auto-hide alerts after 3 seconds
-        setTimeout(() => {
-            document.querySelectorAll(".alert").forEach(el => {
-                el.style.opacity = "0";
-                setTimeout(() => el.remove(), 500);
-            });
-        }, 3000);
-    </script>
-
-    
+    <script src="{% static 'js/app.js' %}" defer></script>
 </body>
 </html>

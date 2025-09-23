@@ -10,6 +10,27 @@ body {
     min-height: 100vh;
 }
 
+/* Respect system dark mode; toggle via .dark class on html as well */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #0f172a, #1f2937);
+        color: #e5e7eb;
+    }
+    .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); }
+    li { background: #1f2937; }
+    li:hover { background: #374151; }
+    .alert-success { background: #064e3b; color: #d1fae5; border-left-color: #10b981; }
+    .alert-error, .alert-danger, .alert-info { background: #7f1d1d; color: #fee2e2; border-left-color: #ef4444; }
+}
+
+html.dark body {
+    background: linear-gradient(135deg, #0f172a, #1f2937);
+    color: #e5e7eb;
+}
+html.dark .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); }
+html.dark li { background: #1f2937; }
+html.dark li:hover { background: #374151; }
+
 /* Container */
 .container {
     margin-top: 80px;
@@ -84,6 +105,12 @@ button {
 button:hover {
     background: #553c9a;
     transform: scale(1.05);
+}
+
+/* Improved focus visibility only when keyboard navigating */
+.user-is-tabbing a:focus, .user-is-tabbing button:focus, .user-is-tabbing input:focus {
+    outline: 3px solid #6b46c1;
+    outline-offset: 2px;
 }
 
 /* Task List */
