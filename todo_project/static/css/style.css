@@ -1,8 +1,9 @@
 /* General Layout */
 body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #c4e0e5, #4ca1af);
-    color: #333;
+    /* new subtle neutral gradient for the page background */
+    background: linear-gradient(135deg, #f5f7fb 0%, #e6eef9 50%, #ffffff 100%);
+    color: #000000;           /* force black text for contrast */
     padding: 40px;
     display: flex;
     justify-content: center;
@@ -16,8 +17,8 @@ body {
         background: linear-gradient(135deg, #0f172a, #1f2937);
         color: #e5e7eb;
     }
-    .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); }
-    li { background: #1f2937; }
+    .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); color: inherit; }
+    li { background: #1f2937; color: inherit; }
     li:hover { background: #374151; }
     .alert-success { background: #064e3b; color: #d1fae5; border-left-color: #10b981; }
     .alert-error, .alert-danger, .alert-info { background: #7f1d1d; color: #fee2e2; border-left-color: #ef4444; }
@@ -27,20 +28,21 @@ html.dark body {
     background: linear-gradient(135deg, #0f172a, #1f2937);
     color: #e5e7eb;
 }
-html.dark .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); }
-html.dark li { background: #1f2937; }
+html.dark .container { background: #111827; box-shadow: 0 6px 15px rgba(0,0,0,0.6); color: inherit; }
+html.dark li { background: #1f2937; color: inherit; }
 html.dark li:hover { background: #374151; }
 
 /* Container */
 .container {
     margin-top: 80px;
     width: 100%;
-    max-width: 550px;
-    background: #ffffff;
-    padding: 25px 30px;
+    max-width: 640px;                     /* slightly wider for improved layout */
+    background: #ffffff;                  /* keep container white for contrast */
+    padding: 30px 36px;
     border-radius: 14px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(16,24,40,0.12); /* stronger, softer shadow */
     animation: fadeIn 0.6s ease-in-out;
+    color: #000000; /* ensure container text is black */
 }
 
 /* Header Title */
@@ -48,10 +50,11 @@ html.dark li:hover { background: #374151; }
     content: "📝 TO DO LIST";
     display: block;
     text-align: center;
-    font-size: 1.6rem;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #4a5568;
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin-bottom: 22px;
+    color: #000000; /* title in black */
+    letter-spacing: 0.6px;
 }
 
 /* Form */
@@ -64,12 +67,19 @@ form {
 
 input[type="text"] {
     flex: 1;
-    width: 300px; 
-    padding: 0;        
+    width: 300px;
+    padding: 8px 6px;        
     border: none;              
-    border-bottom: 2px solid #ccc;  
-    transition: all 0.3s ease;
-    outline: none;             
+    border-bottom: 2px solid #cbd5e1;  
+    transition: all 0.18s ease;
+    outline: none;
+    color: #000000;            /* ensure typed text is black */
+    background: transparent;
+    font-size: 15px;
+}
+
+input[type="text"]::placeholder {
+    color: #94a3b8;            /* visible placeholder */
 }
 
 input[type="text"]:focus {
@@ -84,27 +94,26 @@ form label {
 }
 
 button {
-    background: linear-gradient(135deg, #c4e0e5, #4ca1af);
-    color: white;
+    background: linear-gradient(135deg, #4b6cb7, #182848); /* modern blue gradient */
+    color: #ffffff;
     border: none;
     margin-top: 15px;
     margin-bottom: 15px;
-    width: fit-content;
-    height: fit-content;
-    padding: 12px 18px;
-    border-radius: 8px;
+    padding: 10px 16px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 15px;
-    font-style: bold;
-    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    display: inline-flex;
     align-items: center;
-    gap: 5px;
-    transition: background 0.3s, transform 0.2s;
+    gap: 8px;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+    box-shadow: 0 6px 18px rgba(14,30,60,0.12);
 }
 
 button:hover {
-    background: #553c9a;
-    transform: scale(1.05);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(14,30,60,0.14);
 }
 
 /* Improved focus visibility only when keyboard navigating */
@@ -121,50 +130,52 @@ ul {
 }
 
 li {
-    background: #f3f4f6;
+    background: #f8fafc;
+    color: #000000; /* list text black */
     margin-bottom: 12px;
     padding: 14px 16px;
-    border-radius: 8px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: transform 0.2s, background 0.3s;
-    animation: slideUp 0.4s ease;
+    transition: transform 0.14s, background 0.2s;
+    animation: slideUp 0.36s ease;
 }
 
 li:hover {
-    background: #e5e7eb;
+    background: #eef2f7;
     transform: translateY(-2px);
 }
 
 li.completed span {
     text-decoration: line-through;
-    color: #999;
+    color: #6b7280; /* slightly darker than before for readability */
 }
 
 /* Links */
 a {
     text-decoration: none;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     margin-left: 8px;
-    transition: color 0.2s ease;
+    transition: color 0.15s ease;
+    color: #0b5fff; /* stronger visible blue */
 }
 
 .toggle-btn {
-    color: #16a34a;
+    color: #059669; /* visible green for toggle state */
 }
 
 .toggle-btn:hover {
-    color: #15803d;
+    color: #047857;
 }
 
 .delete-btn {
-    color: #dc2626;
+    color: #b91c1c; /* slightly darker red for contrast */
 }
 
 .delete-btn:hover {
-    color: #b91c1c;
+    color: #7f1d1d;
 }
 
 /* Alerts */
@@ -191,14 +202,15 @@ a {
 }
 
 .messages {
-    position: absolute;   /* float above */
-    top: 20px;
+    position: absolute;
+    top: 22px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
-    max-width: 500px;
+    max-width: 540px;
     z-index: 1000;
     text-align: center;
+    color: #000000; /* ensure message text is black */
 }
 
 /* Animations */
